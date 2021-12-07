@@ -1,5 +1,6 @@
 import Expenses from './components/Expenses/Expenses'
 import NewExpense from './components/NewExpense/NewExpense'
+import { useState } from 'react'
 
 const App = () => {
   const expenses = [
@@ -9,10 +10,14 @@ const App = () => {
     { id: 'e4', title: 'New Desk (Wooden)', amount: 450, date: new Date(2021, 5, 12) }
   ]
 
+  const addExpenseHandler = (expense) => {
+    console.log('yes')
+  }
+
   return (
     <div>
-      <NewExpense/>
-      <Expenses items={expenses} />
+      <NewExpense onAddExpense={addExpenseHandler}/>
+      <Expenses items={expenses}/>
     </div>
   )
 }
